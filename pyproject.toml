@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fch_model"
+version = "3.1.0"
+description = "A performance modeling package for FCH."
+authors = [
+    { name = "Behzad Aminian", email = "aminian.bz@gmail.com" }
+]
+readme = "README.md"
+keywords = ["FCH", "performance", "modeling"]
+
+dependencies = [
+    "numpy",
+    "pandas",
+    "pyyaml"
+]
+
+[tool.setuptools.packages.find]
+where = ["app"]
