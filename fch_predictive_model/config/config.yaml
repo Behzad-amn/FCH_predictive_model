@@ -1,0 +1,82 @@
+---
+# Configuration File for FCH Performance Model
+# Last Updated: 2024-08-23
+# Maintainer: Behzad Aminian
+
+# Performance factors representing different life cycle stages.
+life_cycle_factor:  # Performance Factor (%)
+  BOL: 1.0  # Beginning of Life - The base model remains unchanged.
+  EOL: 0.93  # End of Life - Performance reduced by 7%.
+
+# Channel properties for different models (AX_150 and AX_100).
+channel_properties:
+  # Channel dimensions for AX_150 model
+  AX_150:
+    dry:
+      pitch: 0.0005  # Unit: m - Pitch of the dry air channel.
+      width: 0.046  # Unit: m - Width of the dry air channel.
+      length: 0.15  # Unit: m - Length of the dry air channel.
+
+    wet:
+      pitch: 0.0007  # Unit: m - Pitch of the wet air channel.
+      width: 0.0016  # Unit: m - Width of the wet air channel.
+      length: 0.15  # Unit: m - Length of the wet air channel.
+      wall_thickness: 0.0004  # Unit: m - Thickness of the wall between wet channels.
+      edge_thickness: 0.0052  # Unit: m - Thickness of the edge of the wet channel.
+
+  # Channel dimensions for AX_100 model
+  AX_100:
+    dry:
+      pitch: 0.0005  # Unit: m - Pitch of the dry air channel.
+      width: 0.046  # Unit: m - Width of the dry air channel.
+      length: 0.10  # Unit: m - Length of the dry air channel.
+
+    wet:
+      pitch: 0.0007  # Unit: m - Pitch of the wet air channel.
+      width: 0.0016  # Unit: m - Width of the wet air channel.
+      length: 0.10  # Unit: m - Length of the wet air channel.
+      wall_thickness: 0.0004  # Unit: m - Thickness of the wall between wet channels.
+      edge_thickness: 0.0052  # Unit: m - Thickness of the edge of the wet channel.
+
+# Membrane properties, relevant for all channel models.
+membrane_properties:
+  thickness: 0.00015  # Unit: m - Thickness of the membrane.
+  thermal_conductivity: 0.19  # Unit: W/m.K - Thermal conductivity of the membrane.
+  mass_transfer_resistance: 55  # Unit: s/m - Mass transfer resistance.
+
+# Air properties, used in various calculations throughout the model.
+air_properties:
+  Prandtl_number: 0.7  # Unit: None - Prandtl number, dimensionless.
+  Lewis_number: 1.3  # Unit: None - Lewis number, dimensionless.
+  thermal_conductivity: 0.027  # Unit: W/m.K - Thermal conductivity of the air.
+  heat_capacity: 1005  # Unit: J/kg.C - Heat capacity of the air.
+  latent_heat_of_condensation: 22570000  # Unit: J/kg.C - Latent heat of condensation for water vapor.
+
+# Model-specific properties for controlling simulation parameters.
+model_properties:
+  convergence_threshold: 0.00001  # The threshold for convergence in iterative calculations.
+  relaxation_factor: 0.01  # The relaxation factor used in iterative methods to ensure stability.
+  max_iterations: 50000  # Maximum number of iterations allowed in the simulation.
+
+# Pressure drop model coefficients for different models.
+pressure_drop_model:
+  # Pressure_Drop = poly_coefficient * flow_rate^2 + line_coefficient * flow_rate
+  # Coefficients for AX_150 model
+  AX_150:
+    dry:
+      poly_coefficient: 0.000557346  # Coefficient for the quadratic term in the dry channel.
+      line_coefficient: 0.028104188  # Coefficient for the linear term in the dry channel.
+
+    wet:
+      poly_coefficient: 0.003756491  # Coefficient for the quadratic term in the wet channel.
+      line_coefficient: 0.121065275  # Coefficient for the linear term in the wet channel.
+
+  # Coefficients for AX_100 model
+  AX_100:
+    dry:
+      poly_coefficient: 0.001254028  # Coefficient for the quadratic term in the dry channel.
+      line_coefficient: 0.028104188  # Coefficient for the linear term in the dry channel.
+
+    wet:
+      poly_coefficient: 0.009062173  # Coefficient for the quadratic term in the wet channel.
+      line_coefficient: 0.125358369  # Coefficient for the linear term in the wet channel.
