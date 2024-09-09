@@ -1,4 +1,4 @@
-from app.core.model import FCHPerformanceModel
+from fch_predictive_model.core.model import FCHPerformanceModel
 
 # Define model parameters
 product_model = "Ax150"  # Model name/identifier
