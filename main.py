@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException, Form, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
-from app.core.model import FCHPerformanceModel  # Adjusted import
+from fch_predictive_model.core.model import FCHPerformanceModel  # Adjusted import
 
 app = FastAPI()
 
